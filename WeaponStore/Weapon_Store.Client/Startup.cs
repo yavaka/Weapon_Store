@@ -7,13 +7,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Weapon_Store.Client.Models;
 
 namespace Weapon_Store.Client
 {
     public class Startup
     {
+        private readonly string CONNECTION_STRING = "Server=(localdb)\\mssqllocaldb; Database=WeaponStore; Integrated Security=True; Trusted_Connection=True";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,8 +35,11 @@ namespace Weapon_Store.Client
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //Register the WeaponStoreContext with dependency injection
+            services.AddDbContext<WeaponStoreContext>(
+                options => options.UseSqlServer(CONNECTION_STRING));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +54,7 @@ namespace Weapon_Store.Client
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+      
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
