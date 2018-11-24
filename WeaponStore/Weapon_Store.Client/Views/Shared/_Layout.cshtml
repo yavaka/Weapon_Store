@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,16 +36,23 @@
                                     <li><a asp-controller="#" asp-action="#">CONTACT</a></li>
                                 </ul>
                                 <ul class="navbar_user">
+
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                    <li>@*Register user*@
-                                        <a asp-area="Identity" asp-page="/Account/Register">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li class="checkout">
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        </a>
+                                    @*Dropdown menu: Register and Login*@
+                                    <li>
+                                        <div class="dropdown show">
+                                            <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-item">
+                                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                                </div>
+                                                <div class="dropdown-item">
+                                                    <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                                 <div class="hamburger_container">
@@ -74,6 +85,4 @@
     <script src="~/js/custom.js"></script>
 
 </body>
-
-
 </html>
