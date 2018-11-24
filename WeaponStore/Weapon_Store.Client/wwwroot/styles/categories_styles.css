@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -61,8 +61,8 @@ div
 	display: block;
 	position: relative;
 	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 ul
 {
@@ -556,7 +556,7 @@ section
 	font-size: 13px;
 	font-weight: 500;
 	text-transform: uppercase;
-	padding: 20px;
+	padding: 200px;
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-ms-transition: color 0.3s ease;
@@ -573,7 +573,7 @@ section
 }
 .navbar_user li
 {
-	display: inline-block;
+	display: block;
 	text-align: center;
 }
 .navbar_user li a
@@ -583,6 +583,7 @@ section
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	padding: 10px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -600,8 +601,13 @@ section
 {
 	color: #b5aec4;
 }
-.checkout a
-{
+.navbar-user-correction a button {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.checkout a {
 	background: #eceff6;
 	border-radius: 50%;
 }

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -374,6 +374,7 @@
 		width: 30px;
 		height: 30px;
 		font-size: 12px;
+		padding: 0px 5px 0px 5px;
 	}
 	.checkout_items
 	{
@@ -404,8 +405,8 @@
 	}
 	.section_title::after
 	{
-	    top: calc(100% + 8px);
-	    height: 3px;
+		top: calc(100% + 8px);
+		height: 3px;
 	}
 	.newsletter_form
 	{

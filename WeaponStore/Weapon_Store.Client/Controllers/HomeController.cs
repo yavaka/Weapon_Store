@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Weapon_Store.Client.Data;
 using Weapon_Store.Client.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Weapon_Store.Client.Controllers
 {

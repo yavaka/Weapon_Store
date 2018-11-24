@@ -1,22 +1,90 @@
-﻿@{ 
-    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
-}
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
 
-<h2>Manage your account</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="WeaponStore">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/responsive.css">
+</head>
 
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
-        </div>
+<body>
+    <div class="super_container">
+
+        <header class="header trans_300">
+            <div class="main_nav_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <div class="logo_container">
+                                @* TODO: LOGO*@
+                            </div>
+                            <nav class="navbar">
+                                <ul class="navbar_menu">
+                                    <li><a asp-controller="Home" asp-action="Index">HOME</a></li>
+                                    <li><a asp-controller="#" asp-action="#">SHOP</a></li>
+                                    <li><a asp-controller="#" asp-action="#">CONTACT</a></li>
+                                </ul>
+
+                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
+                                    <ul class="navbar_menu">
+                                        <li><i class="fa fa-search" aria-hidden="true"></i></li>
+                                        <li>
+                                            <div class="navbar-user-correction">
+                                                <a asp-area="Identity" asp-page="/Account/Manage/Index">@UserManager.GetUserName(User)</a>
+                                            </div>
+                                        </li>
+                                        <li class="navbar-user-correction">
+                                            <div class="navbar-user-correction">
+                                                <button type="submit">Logout</button>
+                                            </div>
+                                        </li>
+                                        <li class="checkout">
+                                            @*Shoping cart*@
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </form>
+                                <div class="hamburger_container">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </div>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+
+            </div>
+
+            @RenderSection("scripts", required: false)
+        </header>
+        <hr />
+        <footer>
+            @DateTime.Now
+        </footer>
     </div>
-</div>
 
-@section Scripts {
-    @RenderSection("Scripts", required: false)
-}
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/styles/bootstrap4/popper.js"></script>
+    <script src="~/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/plugins/easing/easing.js"></script>
+    <script src="~/js/custom.js"></script>
+
+</body>
+</html>
