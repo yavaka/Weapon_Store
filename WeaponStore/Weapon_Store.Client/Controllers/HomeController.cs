@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Weapon_Store.Client.Data;
 using Weapon_Store.Client.Models;
 
 namespace Weapon_Store.Client.Controllers
