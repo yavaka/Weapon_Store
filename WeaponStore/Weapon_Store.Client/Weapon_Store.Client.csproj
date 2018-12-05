@@ -11,6 +11,14 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="wwwroot\vendor\font-awesome\less\" />
+    <Folder Include="wwwroot\vendor\font-awesome\scss\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\LoginHome\Contact.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

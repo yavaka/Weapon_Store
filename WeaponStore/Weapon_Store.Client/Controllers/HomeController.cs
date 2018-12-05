@@ -12,6 +12,19 @@ namespace Weapon_Store.Client.Controllers
     {
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index","LoginHome");
+            }
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Contact", "LoginHome");
+            }
             return View();
         }
 
