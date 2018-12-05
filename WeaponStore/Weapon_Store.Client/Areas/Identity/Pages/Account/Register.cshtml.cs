@@ -40,6 +40,10 @@ namespace Weapon_Store.Client.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -66,7 +70,7 @@ namespace Weapon_Store.Client.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/Identity/Account/Login");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new IdentityUser { UserName = Input.Username, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
